@@ -5,6 +5,8 @@ const upload = multer({ dest: 'files/' });
 
 const app = express();
 
+app.use(express.static('public'))
+
 app.post('/file', upload.single('file'), (req, res, next) => {
   console.log(req.file);
   res.send(req.file);
